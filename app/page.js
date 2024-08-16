@@ -55,9 +55,9 @@ export default function Home() {
         textAlign:'center',
         my:4
       }}>
-        <Typography variant="h2" gutterBottom>Welcome to fl.ai.sh</Typography>
+        <Typography variant="h2" gutterBottom>Welcome to AI Flashcards</Typography>
         <Typography variant="h5" gutterBottom>The easiest way to make flashcards from scratch</Typography>
-        <Button variant="contained" color="primary" sx={{mt:2}}>Get Started</Button>
+        <Button variant="contained" color="primary" sx={{mt:2}} href="/generate" >Get Started</Button>
       </Box>
       
       <Box sx={{my:6}}>

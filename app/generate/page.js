@@ -17,12 +17,27 @@ export default function Generate() {
     const router = useRouter()
 
     const handleSubmit = async() => {
-        fetch('api/generate', {
-            method: 'POST',
-            body: text,
-        })
-        .then((res) => res.json())
-        .then((data) => setFlashCards(data))
+        if (!text.trim()) {
+            alert('Please enter some text to generate flashcards.')
+            return
+          }
+        
+          try {
+            const response = await fetch('/api/generate', {
+              method: 'POST',
+              body: text,
+            })
+        
+            if (!response.ok) {
+              throw new Error('Failed to generate flashcards')
+            }
+        
+            const data = await response.json()
+            setFlashCards(data)
+          } catch (error) {
+            console.error('Error generating flashcards:', error)
+            alert('An error occurred while generating flashcards. Please try again.')
+          }
     }
 
 
